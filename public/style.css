@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+form{
+    position: relative;
+    top: 150px;
+    margin: auto;
+    background-color: rgb(99, 13, 190);
+    width: 25vw;
+    /* height: 45vh; */
+    padding: 20px;
+}
+form input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    padding: 10px;
+    width: 20vw;
+    height: 40px;
+}
