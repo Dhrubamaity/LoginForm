@@ -43,13 +43,11 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", async (req, res) => {
     let { username, email, password } = req.body;
-    let user = await usermodel.findOne({ email });
-    if (!user) {
-        res.send("something went wrong");
-    } else {
+    let user = await usermodel.findOne({ email: email });
+    if (!user || user.username !== username) res.send("something went wrong");
+    else {
         bcrypt.compare(password, user.password, function (err, result) {
-            if (!result)
-                res.send("something went wrong");
+            if (!result) res.send("something went wrong");
             else {
                 let token = jwt.sign({ email }, 'Dhruba');
                 res.cookie("token", token);
